@@ -146,16 +146,20 @@ let inventario = ["hongo", "flor", "trampa", "estrella", "trampa", "pluma"];
 // d) Usa desestructuración para extraer los dos primeros elementos del inventarioEnMayusculas y guardarlos en variables llamadas primerItem y segundoItem.
 
 //write your code here
-inventario = inventario.filter((borro) => borro !== "trampa");
-let inventarioSinTrampa = inventario;
+const inventarioSinTrampa = inventario.filter((item) => item !== "trampa");
 console.log(inventarioSinTrampa);
 
 inventarioSinTrampa.push("super estrella");
 console.log(inventarioSinTrampa);
 
-const mayus = inventario.map(inventario) => (inventario).toUpperCase();
+const inventarioEnMayusculas = inventarioSinTrampa.map(item => item.toUpperCase());
+console.log(inventarioEnMayusculas);
 
-console.log(inventarioSinTrampa);
+const [primerItem,segundoItem]=inventarioEnMayusculas;
+console.log(primerItem,segundoItem);
+
+
+
 // Pregunta 15:
 // Usando el mismo arreglo de inventario anterior (el original, no los modificados).
 // Usa un bucle for o for...of para recorrer el inventario e imprime mensajes personalizados para cada objeto
@@ -164,3 +168,10 @@ console.log(inventarioSinTrampa);
 // Para cualquier otro objeto, imprime: "Mario tiene un(a) [nombre del objeto]."
 
 //write your code here
+for (const item of inventario) {
+  if(item === "trampa"){
+    console.log( "¡Cuidado! Hay una trampa");
+  }else if (item === "estrella") {
+    console.log("¡Una estrella! Usar en caso de emergencia");
+  }else console.log(`Mario tiene un(a) ${item}`);
+}
